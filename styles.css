@@ -6,12 +6,15 @@
     box-sizing: border-box;
 }
 
+/* ===== BODY ===== */
 body {
     font-family: 'Arial', sans-serif;
     color: #333;
     background-color: #f4f4f4;
+    padding-top: 90px; /* space untuk navbar fixed */
 }
 
+/* ===== NAVBAR ===== */
 .navbar {
     background-color: #121212;
     display: flex;
@@ -19,17 +22,16 @@ body {
     align-items: center;
     padding: 20px 40px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    position: fixed; /* tetap di atas */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 999;
 }
 
-
 .navbar .logo {
     font-size: 1.8rem;
-    color:#00c7bd;
+    color: #00c7bd;
     font-weight: 700;
 }
 
@@ -54,6 +56,7 @@ body {
     color: #00c7bd;
 }
 
+/* ===== HERO ===== */
 .hero {
     height: 100vh;
     background: url('Headerbild_Blog.jpg') center center no-repeat;
@@ -62,6 +65,7 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
+    padding-top: 40px;
 }
 
 .hero .overlay {
@@ -92,8 +96,10 @@ body {
 
 .cta-button:hover {
     background-color: #00c7bd;
+    color: #121212;
 }
 
+/* ===== PRODUCTS ===== */
 .products {
     padding: 80px 40px;
     background-color: white;
@@ -107,10 +113,10 @@ body {
 }
 
 .product-grid {
-    display: flex;
-    flex-wrap: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    justify-content: center;
+    justify-items: center;
 }
 
 .product-card {
@@ -120,14 +126,15 @@ body {
     border-radius: 10px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 650px;
+    width: 100%;
+    max-width: 650px;
 }
 
-a{
-     color:  #008698;
-    font-weight: 600;
+a {
     text-decoration: none;
-    transition: color 0.3s;
+    color: #008698;
+    /* font-size: 3.5rem; */
+    font-weight: 700;
 }
 
 a:hover{
@@ -153,14 +160,14 @@ a:hover{
 }
 
 .product-card .product-link {
-    color:  #008698;
+    color: #008698;
     font-weight: 600;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .product-card .product-link:hover {
-    color:#00c7bd;
+    color: #00c7bd;
 }
 
 .product-card:hover {
@@ -168,6 +175,7 @@ a:hover{
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* ===== ABOUT ===== */
 .about {
     padding: 60px 40px;
     background-color: #f9f9f9;
@@ -179,6 +187,7 @@ a:hover{
     color: #444;
 }
 
+/* ===== CONTACT ===== */
 .contact {
     padding: 60px 40px;
     background-color: white;
@@ -186,7 +195,7 @@ a:hover{
 }
 
 .contact a {
-    color:#008698;
+    color: #008698;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s;
@@ -196,6 +205,7 @@ a:hover{
     color: #00c7bd;
 }
 
+/* ===== FOOTER ===== */
 footer {
     padding: 20px;
     background-color: #121212;
@@ -207,19 +217,67 @@ footer p {
     font-size: 1rem;
 }
 
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    .hero-description {
-        font-size: 1.1rem;
-    }
-    .cta-button {
-        font-size: 1.1rem;
-        padding: 12px 35px;
-    }
-    .product-grid {
+    .navbar {
+        padding: 15px 20px;
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
     }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero {
+        height: 80vh;
+        padding: 20px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-description {
+        font-size: 1.05rem;
+    }
+
+    .products,
+    .about,
+    .contact {
+        padding: 50px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .navbar .logo {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.9rem;
+    }
+
+    .product-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .product-card p {
+        font-size: 0.95rem;
+    }
+
+    .cta-button {
+        padding: 12px 28px;
+        font-size: 1rem;
+    }
+}
+
+footer.fade-js{
+    background-color: #121212;
 }
